@@ -24,6 +24,6 @@ down:
 .PHONY: down
 
 logs:
-	docker logs backend-boilerplate -f
+	docker logs boilerplate-backend -f
 
 .PHONY: logs

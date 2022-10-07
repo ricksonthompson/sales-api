@@ -7,9 +7,9 @@ export class ApiController {
   async feature() {
     return [
       {
-        name: 'BACKEND-BOILERPLATE-ACCESS',
+        name: 'BOILERPLATE-BACKEND-ACCESS',
         pretty_name: 'Permissão de Acesso',
-        description: 'O usuario pode acessar o módulo BACKEND-BOILERPLATE',
+        description: 'O usuario pode acessar o módulo BOILERPLATE-BACKEND',
       },
     ];
   }

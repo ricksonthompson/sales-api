@@ -2,11 +2,11 @@ version: '3.7'
 
 services:
   app:
-    image: backend-boilerplate:latest
+    image: boilerplate-backend:latest
     build: 
       dockerfile: Dockerfile
       context: .
-    container_name: backend-boilerplate
+    container_name: boilerplate-backend
     ports:
       - ${PORT_BACKEND}:${PORT_BACKEND}
     restart: always
