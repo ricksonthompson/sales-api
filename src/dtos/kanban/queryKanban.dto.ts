@@ -1,4 +1,4 @@
-import { EKanbanType } from "src/utils/ETypes"
+import { EKanbanType } from "../../utils/ETypes";
 
 export interface IQueryKanban {
   sequenceQr?: number

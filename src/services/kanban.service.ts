@@ -4,8 +4,8 @@ import IKanbanRepository from "../repositories/kanban/kanban.repository.contract
 import { Page, PageResponse } from "../configs/database/page.model";
 import { FiltersKanbanDTO } from "../dtos/kanban/filtersKanban.dto";
 import { MappedKanbanDTO } from "../dtos/kanban/mappedKanban.dto";
-import { CreateKanbanDTO } from "src/dtos/kanban/createKanban.dto";
-import { UpdateKanbanDTO } from "src/dtos/kanban/updateKanban.dto";
+import { CreateKanbanDTO } from "../dtos/kanban/createKanban.dto";
+import { UpdateKanbanDTO } from "../dtos/kanban/updateKanban.dto";
 
 @Injectable()
 export class KanbanService {

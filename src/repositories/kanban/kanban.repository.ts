@@ -5,7 +5,7 @@ import { Pageable } from "../../configs/database/pageable.service";
 import { PrismaService } from "../../configs/database/prisma.service";
 import { Kanban } from "../../entities/kanban.entity";
 import IKanbanRepository from "./kanban.repository.contract";
-import { getDateInLocaleTime } from "src/utils/date.service";
+import { getDateInLocaleTime } from "../../utils/date.service";
 import { generateQueryByFiltersForKanbans } from "../../configs/database/Queries";
 
 @Injectable()
