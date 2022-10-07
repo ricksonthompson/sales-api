@@ -1,0 +1,19 @@
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
+}
+
+model Kanban {
+  id                 String              @id @unique
+  sequenceQr         Int                 @db.Int
+  type               String              @db.VarChar(10)
+  process            String              @db.VarChar(3)
+  product            String              @db.VarChar(15)
+  createdAt          DateTime            @default(now()) @db.DateTimeOffset
+  updatedAt          DateTime?           @db.DateTimeOffset
+}
