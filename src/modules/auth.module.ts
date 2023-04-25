@@ -5,7 +5,7 @@ import { RoleGuard } from "../configs/authentication/auth.guard";
 import { AuthService } from "../services/auth.service";
 import { AuthController } from "../controllers/auth.controller";
 import { RequestContextModule } from "nestjs-request-context";
-import { CoreServiceIntegration } from "../integrations/services/coreService/core.service.integration";
+// import { CoreServiceIntegration } from "../integrations/services/coreService/core.service.integration";
 
 @Module({
   imports: [
@@ -24,10 +24,10 @@ import { CoreServiceIntegration } from "../integrations/services/coreService/cor
       provide: APP_GUARD,
       useClass: RoleGuard,
     },
-    {
-      provide: "ICoreServiceIntegration",
-      useClass: CoreServiceIntegration,
-    },
+    // {
+    //   provide: "ICoreServiceIntegration",
+    //   useClass: CoreServiceIntegration,
+    // },
   ],
 })
 export class AuthModule {}
