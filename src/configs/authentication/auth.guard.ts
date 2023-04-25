@@ -1,4 +1,10 @@
-import { Injectable, CanActivate, ExecutionContext, HttpException, HttpStatus } from "@nestjs/common";
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  HttpException,
+  HttpStatus,
+} from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 import { RequestContext } from "nestjs-request-context";
 import { IS_PUBLIC_KEY } from "../../decorators/public.decorator";
@@ -9,25 +15,25 @@ export class RoleGuard implements CanActivate {
   constructor(
     private readonly reflector: Reflector,
     private readonly authService: AuthService
-  ) { }
+  ) {}
 
   async canActivate(context: ExecutionContext) {
     try {
       const isPublic = this.reflector.getAllAndOverride(IS_PUBLIC_KEY, [
         context.getHandler(),
-        context.getClass()
-      ])
+        context.getClass(),
+      ]);
 
-      if (isPublic || process.env.MOCK_SERVER === "true") return true
+      if (isPublic || process.env.MOCK_SERVER === "true") return true;
 
-      const extractJwt = RequestContext.currentContext.req.header("authorization");
+      const extractJwt =
+        RequestContext.currentContext.req.header("authorization");
 
       await this.authService.authenticate(extractJwt);
 
-      return true
-
+      return true;
     } catch (e) {
-      throw new HttpException('unauthorized', HttpStatus.UNAUTHORIZED)
+      throw new HttpException("unauthorized", HttpStatus.UNAUTHORIZED);
     }
   }
 }

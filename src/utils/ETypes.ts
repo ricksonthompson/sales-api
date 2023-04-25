@@ -1,5 +1,5 @@
-export enum EKanbanType {
-  TYPE_2W = '2W',
-  TYPE_4W = '4W',
-  TYPE_ACG = 'ACG'
+export enum EPaymentMethod {
+  CREDIT_CARD = "CREDIT_CARD",
+  PIX = "PIX",
+  CASH = "CASH",
 }

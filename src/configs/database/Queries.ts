@@ -1,27 +1,33 @@
-import { FiltersKanbanDTO } from "../../dtos/kanban/filtersKanban.dto";
-import { IQueryKanban } from "../../dtos/kanban/queryKanban.dto";
+import { FiltersSaleDTO } from "../../dtos/sale/filtersSale.dto";
+import { IQuerySale } from "../../dtos/sale/querySale.dto";
 import { convertAndVerifyNumber } from "../../utils/Utils";
 
-export function generateQueryByFiltersForKanbans(filters: FiltersKanbanDTO): IQueryKanban {
+export function generateQueryByFiltersForSales(filters: FiltersSaleDTO): IQuerySale {
 
   const fields = {
-    sequenceQr: () => ({
-      sequenceQr: convertAndVerifyNumber(filters.sequenceQr)
+    amount: () => ({
+      amount: convertAndVerifyNumber(filters.amount)
     }),
-    process: () => ({
-      process: filters.process 
+    customer: () => ({
+      customer: filters.customer 
     }),
-    type: () => ({
-      type: filters.type
+    flavor: () => ({
+      flavor: filters.flavor
     }),
-    product: () => ({
-      product: filters.product
+    paymentMethod: () => ({
+      paymentMethod: filters.paymentMethod
+    }),
+    quantity: () => ({
+      quantity: filters.quantity
+    }),
+    unitaryValue: () => ({
+      unitaryValue: filters.unitaryValue
     }),
   }
 
   const keysFields = Object.keys(fields);
 
-  let query: IQueryKanban;
+  let query: IQuerySale;
 
   let queryBuilder: Function;
 

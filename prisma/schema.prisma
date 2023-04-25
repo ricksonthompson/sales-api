@@ -1,19 +1,26 @@
 datasource db {
-  provider = "sqlserver"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = ["native"]
+  provider = "prisma-client-js"
 }
 
-model Kanban {
-  id                 String              @id @unique
-  sequenceQr         Int                 @db.Int
-  type               String              @db.VarChar(10)
-  process            String              @db.VarChar(3)
-  product            String              @db.VarChar(15)
-  createdAt          DateTime            @default(now()) @db.DateTimeOffset
-  updatedAt          DateTime?           @db.DateTimeOffset
+model Sale {
+  id            String         @id @unique @db.Uuid
+  customer      String         @db.VarChar(255)
+  flavor        String         @db.VarChar(255)
+  quantity      Int            @db.Integer
+  unitaryValue  Float          @db.Real
+  amount        Float          @db.Real
+  paymentMethod EPaymentMethod
+  createdAt     DateTime       @default(now()) @db.Timestamp
+  updatedAt     DateTime?      @db.Timestamp
+}
+
+enum EPaymentMethod {
+  CREDIT_CARD
+  PIX
+  CASH
 }

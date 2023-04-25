@@ -1,13 +1,13 @@
-version: '3.7'
+version: "3.7"
 
 services:
   app:
-    image: boilerplate-backend:latest
-    build: 
+    image: sales-api:latest
+    build:
       dockerfile: Dockerfile
       context: .
-    container_name: boilerplate-backend
+    container_name: sales-api
     ports:
-      - ${PORT_BACKEND}:${PORT_BACKEND}
+      - ${PORT}:${PORT}
     restart: always
     env_file: .env
